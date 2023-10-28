@@ -1,6 +1,6 @@
 // src/BookList.js
 
-import React from 'react';
+import React, { Component } from 'react';
 import Book from './Book';
 
 const books = [
@@ -10,23 +10,28 @@ const books = [
   // Add more books if you'd like
 ];
 
-function BookList() {
-  return (
-    <div>
-      <h2>List of Books</h2>
-      <ul>
-        {books.map((book, index) => (
-          <li key={index}>
-            <Book
-            title={book.title}
-            author={book.author}
-            year={book.year}
-            />
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+// Converting the Booklist Functional Component into a class-based component.
+// using the render() method
 
-export default BookList;
+class BookList extends Component {
+    render() {
+      return (
+        <div>
+          <h2>List of Books</h2>
+          <ul>
+            {books.map((book, index) => (
+              <li key={index}>
+                <Book
+                  title={book.title}
+                  author={book.author}
+                  year={book.year}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+  }
+  
+  export default BookList;
